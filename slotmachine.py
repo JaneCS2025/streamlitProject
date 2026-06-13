@@ -2,6 +2,8 @@ import streamlit as st
 import random
 import time
 
+##https://janeslotmachine.streamlit.app/
+
 symbols = ['🍒', '🍿', '🎁', '🐸', '⭐️']
 
 st.title("🎰 WIN BIG SLOT MACHINE 🥳🥳🥳")
