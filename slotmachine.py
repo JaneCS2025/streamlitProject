@@ -56,6 +56,6 @@ if st.button('🎲 SPIN Match 2 for some coins, match 3 for the jackpot!'):
         st.info("So close! Try again 😝")
 
 st.write(f'### ⭐️ Your score: {st.session_state.score}')
-st.write(f'### 🪙 Your coin: {st.session_state.coin}')
+# st.write(f'### 🪙 Your coin: {st.session_state.coin}')
         
 
