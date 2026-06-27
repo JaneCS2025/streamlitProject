@@ -6,5 +6,5 @@ st.markdown("""
 
 """)
 
-st.pdf("https://ontheline.trincoll.edu/images/bookdown/sample-local-pdf.pdf", height=900)
+st.pdf("sample-local-pdf.pdf", height=900)
 
