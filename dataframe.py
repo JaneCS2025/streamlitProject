@@ -57,17 +57,83 @@ df
 # st.write(x, 'plus 2 is', x+2)
 
 # Text input field
-st.text_input("Your name", key="name")
-st.text_input("Your city", key="city")
-st.session_state.name
-st.session_state.city
+# st.text_input("Your name", key="name")
+# st.text_input("Your city", key="city")
+# st.session_state.name
+# st.session_state.city
 
 
 # Checkbox
-if st.checkbox('Show dataframe'):
-  chart_data = pd.DataFrame(
-    np.random.randn(20, 3),
-    columns = ['Col1', 'Col2', 'Col3']
+# if st.checkbox('Show dataframe'):
+#   chart_data = pd.DataFrame(
+#     np.random.randn(20, 3),
+#     columns = ['Col1', 'Col2', 'Col3']
+#   )
+
+#   chart_data
+
+#Selectbox
+
+df = pd.DataFrame({
+  'first column': [1,2,3,4],
+  'second column': [10,20,30,40]
+})
+
+option = st.selectbox(
+  'Which number do you like the best?',
+  df['second column']
+)
+
+'You selected: ', option
+
+
+df = pd.DataFrame({
+  'first column': [1,2,3,4,5,6,7,8,9,10,11,12],
+})
+
+option = st.selectbox(
+  'Which grade are you in?',
+  df['first column']
+)
+
+'My Grade is : ', option
+
+df = pd.DataFrame({
+  'first column': ['apple','banana','peach', 'watermelon','kiwi', 'berry'],
+})
+
+option = st.selectbox(
+  'What is your favorite fruit?',
+  df['first column']
+)
+
+'My favorite fruit is : ', option
+
+# using columns for layout
+
+left_column, right_column = st.columns(2)
+left_column.button('Press me!')
+
+with right_column:
+  option = st.radio(
+    'Choosing colors',
+    ("red", "yellow", "green", "blue")
   )
 
-  chart_data
+  st.write(f"You have chosen {option} color!")
+
+
+import time
+
+'Starting a long computation...'
+
+latest_iteration = st.empty()
+bar = st.progress(0)
+
+for i in range(100):
+  latest_iteration.text(f'Iteration {i+1}')
+  bar.progress(i+1)
+  time.sleep(0.1)
+
+'...and now we\'re done!'
+
