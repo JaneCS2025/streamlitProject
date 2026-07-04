@@ -10,6 +10,9 @@ pages = {
 
   "Favorite food": [
      st.Page("food.py", title = "Food")
+  ],
+  "Data Analytics": [
+    st.Page("dataframe.py", title = "Table")
   ]
 }
 
