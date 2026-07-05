@@ -2,6 +2,15 @@ import streamlit as st
 
 ## Adding tab:
 
+st.title("This is my blogpost")
+st.markdown("""
+ 
+ My name is cody. I live in NJ, USA. I am a student in Grade 6. ...
+
+""")
+
+
+
 
 tab1, tab2, tab3 = st.tabs(['Home','About', 'Contact'])
 
