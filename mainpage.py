@@ -13,6 +13,9 @@ pages = {
   ],
   "Data Analytics": [
     st.Page("dataframe.py", title = "Table")
+  ],
+  "Game": [
+    st.Page("game.py", title="Slot Machine")
   ]
 }
 
