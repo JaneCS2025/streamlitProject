@@ -6,5 +6,5 @@ st.markdown("""
 
 """)
 
-st.video("https://youtu.be/coiEGndoC8M?si=fLQhMzQHr7TyuxvD")
+st.video("https://youtu.be/coiEGndoC8M?si=fLQhMzQHr7TyuxvD", width="stretch")
 

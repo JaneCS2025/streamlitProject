@@ -9,6 +9,9 @@ pages = {
  ],
  "Food": [
    st.Page("food.py", title="Self Introduction"),
+ ],
+ "Game": [
+   st.Page("game1.py", title="Game")
  ]
 
 }
