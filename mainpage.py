@@ -46,7 +46,7 @@ pages = {
   "Game": [
     st.Page("game.py", title="Slot Machine")
   ],
-  "Account": [logout_page],
+  "Settings": [logout_page],
 }
 
 
