@@ -41,8 +41,12 @@ pages = {
      st.Page("food.py", title = "Food")
   ],
   "Data Analytics": [
-    st.Page("dataframe.py", title = "Table")
+    st.Page("dataframe.py", title = "Table"),
+    st.Page("numpy_notes.py", title = "Numpy")
   ],
+  "Data Structures": [
+      st.Page("list.py", title = "Lists & Arrays"),
+    ],
   "Game": [
     st.Page("game.py", title="Slot Machine")
   ],
