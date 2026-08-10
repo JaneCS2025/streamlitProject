@@ -1,4 +1,5 @@
 # 8/15/2026 review python list function
+# Data Structures - https://www.geeksforgeeks.org/python/python-programming-language-tutorial/
 
 # Create a list and print it 
 b = ["apple", "banana"]
