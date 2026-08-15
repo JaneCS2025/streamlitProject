@@ -121,11 +121,205 @@ print(arr[0:2, 1:4])
 
 st.code(notes, language='python')
 
+st.subheader("Converting Data Type on Existing Arrays")
 
-arr = np.array([[1, 2, 3, 4, 5], [6, 7, 8, 9, 10]])
-print(arr[0:2, 1:4]) 
+notes = """
+Below is some examples:
 
-# [[2 3 4]
-#  [7 8 9]]
+arr = np.array([12,23,34,45,55], dtype='S')
+print(arr.dtype)
+arr = np.array(['apple', 'banana', 'cherry'])
+
+print(arr.dtype)
+
+i - integer
+b - boolean
+u - unsigned integer
+f - float
+c - complex float
+m - timedelta
+M - datetime
+O - object
+S - string
+U - unicode string
+V - fixed chunk of memory for other type ( void )
+
+#convert float to integer
+arr = np.array([1.1, 2.1, 3.1])
+
+newarr = arr.astype('i')
+print(newarr) # [1 2 3]
+print(newarr.dtype) #int32
+
+#convert integer to boolean
+arr = np.array([-1, 0, -3])
+newarr = arr.astype(bool) 
+print(newarr) #[ True False  True]
+print(newarr.dtype) #bool
+
+"""
+
+st.code(notes, language= 'python')
+
+st.subheader("The Difference Between Copy and View")
+
+notes = """
+arr = np.array([1,2,3])
+arr2 = arr.copy() # The copy SHOULD NOT be affected by the changes made to the original array.
+arr[0] = 42
+
+print(arr)
+print(arr2) 
+
+
+arr3 = arr.view()
+arr[0] = 42
+print(arr) # The view SHOULD be affected by the changes made to the original array.
+print(arr3) 
+
+arr3 = arr.view()
+arr3[0] = 10
+
+print(arr)
+print(arr3)
+
+# Check if Array owns its original data 
+arr = np.array([1,2,3])
+arr1 = arr.copy()
+arr2 = arr.view()
+
+print(arr1.base) # None
+print(arr2.base) # Original array
+
+
+# Example for copy and view
+original_array = np.array([1, 2, 3])
+x = original_array.copy()
+x[0] = 5
+print(original_array)
+"""
+
+st.code(notes, language='python')
+
+st.subheader("Get the Shape of an Array")
+
+notes = """
+arr = np.array([[1, 2, 3, 4], [5, 6, 7, 8]])
+print(arr.shape) #(2, 4)
+
+Create an array with 5 dimensions using ndmin using a vector with values 1,2,3,4 and verify that last dimension has value 4:
+
+arr = np.array([1,2,3,4], ndmin=5)
+print(arr) # [[[[[1 2 3 4]]]]]
+print('shape of array :', arr.shape)  # (1, 1, 1, 1, 4)
+
+arr = np.array([[1, 2], [5, 6], [7, 8]])
+print('shape of array :', arr.shape) # (3, 2)
+
+"""
+st.code(notes, language='python')
+
+
+st.subheader('Reshaping arrays')
+
+notes = """
+arr = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12])
+
+# row * columns  = total elements in the list 
+newArr = arr.reshape(4, 3) 
+print(newArr)
+
+newArr = arr.reshape(3, 4)
+print(newArr)
+
+newArr = arr.reshape(2, 6)
+print(newArr)
+
+
+# [[ 1  2  3]
+#  [ 4  5  6]
+#  [ 7  8  9]
+#  [10 11 12]]
+
+# 1D array with 12 elements into a 3D array
+arr = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]) # 12
+
+newArr = arr.reshape(2,3,2) 
+print(newArr)
+
+# [[[ 1  2]
+#   [ 3  4]
+#   [ 5  6]]
+
+#  [[ 7  8]
+#   [ 9 10]
+#   [11 12]]]
+
+# Pass -1 as the value, and Numpy will calculate this number for you
+arr = np.array([1, 2, 3, 4, 5, 6, 7, 8])
+newArr = arr.reshape(2,2,-1)
+print(newArr)
+
+# [[[1 2]
+#   [3 4]]
+
+#  [[5 6]
+#   [7 8]]]
+
+# Flattening the arrays
+arr = np.array([[1, 2, 3], [4, 5, 6]])
+newArr = arr.reshape(-1)
+
+print(newArr) #[1 2 3 4 5 6]
+"""
+
+st.code(notes, language='python')
+
+st.subheader("Iterating Arrays")
+
+notes = """
+
+# 1D array
+arr = np.array([1, 2, 3])
+
+for x in arr:
+  print(x) # 1,2,3
+
+
+#2D array
+1 2 3 4 5 6
+arr = np.array([[1, 2, 3], [4, 5, 6]])
+
+for x in arr: #[1, 2, 3], [4, 5, 6]
+  for y in x: 
+    print(y)
+
+for x in arr:
+  for y in x:
+    for z in y:
+      print(z)
+
+arr = np.array([[[1, 2, 3], [4, 5, 6]], [[7, 8, 9], [10, 11, 12]]])
+for x in np.nditer(arr):
+  print(x)
+
+#skip number using step
+arr = np.array([[1, 2, 3, 4], [5, 6, 7, 8]])
+for x in np.nditer(arr[:, ::2]):
+  print(x)
+
+"""
+
+st.code(notes, language='python')
+
+
+
+
+
+
+
+
+
+
 
 
