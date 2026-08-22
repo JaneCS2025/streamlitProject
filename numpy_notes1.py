@@ -312,14 +312,228 @@ for x in np.nditer(arr[:, ::2]):
 
 st.code(notes, language='python')
 
+st.subheader("Joining NumPy Arrays")
+
+notes = """
+# example 1
+arr1 = np.array([1, 2, 3])
+arr2 = np.array([4, 5, 6])
+arr = np.concatenate((arr1, arr2))
+# print(arr) #[1 2 3 4 5 6]
+
+#example 2
+# Join two 2-D arrays along rows (axis=1)
+arr1 = np.array([[1, 2], [3, 4]])
+arr2 = np.array([[5, 6], [7, 8]])
+arr = np.concatenate((arr1, arr2), axis=1)
+# print(arr)
+# [[1 2 5 6]
+# [3 4 7 8]]
+
+arr1 = np.array([[1, 2], [3, 4]])
+arr2 = np.array([[5, 6], [7, 8]])
+arr = np.concatenate((arr1, arr2), axis=0)
+# print(arr)
+
+# [[1 2]
+#  [3 4]
+#  [5 6]
+#  [7 8]]
+
+# using stack to join array
+arr1 = np.array([1, 2, 3])
+arr2 = np.array([4, 5, 6])
+
+arr = np.stack((arr1, arr2), axis=1)
+# print(arr)
+
+# [[1 4]
+#  [2 5]
+#  [3 6]]
+
+# Stacking Along Rows using hstack
+arr1 = np.array([1, 2, 3])
+arr2 = np.array([4, 5, 6])
+
+arr = np.hstack((arr1, arr2))
+print(arr) #[1 2 3 4 5 6]
 
 
+#Stacking Along Columns
+arr1 = np.array([1, 2, 3])
+arr2 = np.array([4, 5, 6])
+
+arr = np.vstack((arr1, arr2))
+# print(arr)
+# [[1 2 3]
+#  [4 5 6]]
+
+# Stacking Along Height (depth)
+arr1 = np.array([1, 2, 3])
+arr2 = np.array([4, 5, 6])
+arr = np.dstack((arr1, arr2))
+
+print(arr)
+# [[[1 4]
+#   [2 5]
+#   [3 6]]]
+
+"""
+
+st.code(notes, language='python')
+
+st.subheader("NumPy Splitting Array")
+
+notes = """
+
+# Split one dimension array
+arr = np.array([1,2,3,4,5,6])
+newArr = np.array_split(arr, 3)
+
+print(newArr)
+print(newArr[0])
+print(newArr[1])
+print(newArr[2])
+
+# Splitting 2-D Arrays
+
+arr = np.array([[1, 2], [3, 4], [5, 6], [7, 8], [9, 10], [11, 12]])
+newArr = np.array_split(arr, 3)
+print(newArr)
+print(newArr[0])
+# [[1 2]
+#  [3 4]]
 
 
+arr = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9], [10, 11, 12], [13, 14, 15], [16, 17, 18]])
+newArr = np.array_split(arr, 3)
+print(newArr)
+print(newArr[0])
+# [[1 2 3]
+#  [4 5 6]]
 
 
+arr = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9], [10, 11, 12], [13, 14, 15], [16, 17, 18]])
+newArr = np.array_split(arr, 3, axis=1)
+print(newArr)
 
 
+#hsplit - opposite of hstack
+arr = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9], [10, 11, 12], [13, 14, 15], [16, 17, 18]])
+newArr = np.hsplit(arr, 3)
+print(newArr)
+
+#vsplit
+arr = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9], [10, 11, 12], [13, 14, 15], [16, 17, 18]])
+newArr = np.vsplit(arr, 3)
+print(newArr)
 
 
+#dsplit - work on 3 or more dimensions - split by depth
+arr = np.array([[[1, 2, 3], [4, 5, 6], [7, 8, 9], [10, 11, 12], [13, 14, 15], [16, 17, 18]]])
+newArr = np.dsplit(arr, 3)
+print(newArr)
+"""
+
+st.code(notes, language='python')
+
+st.subheader("Searching Arrays")
+
+notes = """
+arr = np.array([1, 2, 3, 4, 5, 4, 4])
+
+res = np.where(arr == 4)
+# print(res) # array([3, 5, 6])
+
+# checking the odd number
+arr = np.array([10, 14, 93, 41, 8, 7])
+x = np.where(arr%2 == 1) 
+# print(x) #(array([2, 3, 5]),)
+
+arr = np.array([10, 14, 93, 41, 8, 7])
+x = np.where(arr%2 == 0) 
+# print(x) # (array([0, 1, 4]),)
+
+
+# Find the index to insert a number in a sorted array
+arr = np.array([6, 7, 8, 9])
+res = np.searchsorted(arr, 7)
+# print(res) # index 1 is the location to insert 7
+
+#insert 7 from the end
+arr = np.array([6, 7, 8, 9])
+res = np.searchsorted(arr, 7, side="right")
+# print(res) # 2
+
+#insert multiple values
+arr = np.array([6, 7, 8, 9])
+res = np.searchsorted(arr, [2, 4, 6])
+# print(res) # [0, 0, 0]
+
+arr = np.array([1, 3, 5, 7])
+res = np.searchsorted(arr, [2, 4, 6])
+print(res) # [1 2 3]
+
+"""
+
+st.code(notes, language='python')
+
+st.subheader("Sorting a 2D Array")
+
+notes = """
+arr = np.array([[3, 2, 4], [5, 0, 1]])
+# print(np.sort(arr))
+# [[2 3 4]
+#  [0 1 5]]
+
+arr = np.array(['banana', 'cherry', 'apple'])
+# print(np.sort(arr)) # ['apple' 'banana' 'cherry']
+
+arr = np.array([True, False, True])
+print(np.sort(arr)) # [False  True  True]
+"""
+
+st.code(notes, language='python')
+
+st.subheader("Creating Filter Directly From Array")
+
+notes = """
+arr = np.array([41, 42, 43, 44])
+filter_arr = arr > 42
+
+newArr = arr[filter_arr]
+# print(filter_arr) #[False False  True  True]
+# print(newArr) # [43 44]
+
+arr = np.array([41, 42, 43, 44])
+mask = [True, False, True, False]
+
+newArr = arr[mask] 
+# print(newArr) #[41 43]
+
+# return only even numbers from original array
+arr = np.array([1, 2, 3, 4, 5, 6, 7])
+
+filter_arr = []
+
+for ele in arr:
+  if ele %2 == 0:
+    filter_arr.append(True)
+  else:
+    filter_arr.append(False)
+
+newArr = arr[filter_arr]
+# print(filter_arr) # [False, True, False, True, False, True, False]
+# print(newArr) # [2 4 6]
+
+#way2 to filter even number
+arr = np.array([1, 2, 3, 4, 5, 6, 7])
+filter_arr = arr %2 == 0
+
+newArr = arr[filter_arr]
+print(newArr) # [2 4 6]
+
+"""
+
+st.code(notes, language='python')
 
