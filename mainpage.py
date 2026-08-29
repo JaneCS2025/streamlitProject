@@ -42,7 +42,8 @@ pages = {
   ],
   "Data Analytics": [
     st.Page("dataframe.py", title = "Table"),
-    st.Page("numpy_notes.py", title = "Numpy")
+    st.Page("numpy_notes.py", title = "Numpy"),
+    st.Page("machine_learning.py", title = "Machine Learning")
   ],
   "Data Structures": [
       st.Page("list.py", title = "Lists & Arrays"),
