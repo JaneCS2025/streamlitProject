@@ -47,6 +47,8 @@ pages = {
   ],
   "Data Structures": [
       st.Page("list.py", title = "Lists & Arrays"),
+      st.Page("set.py", title="Set"),
+      st.Page("dictionary.py", title= "Dictionary")
     ],
   "Game": [
     st.Page("game.py", title="Slot Machine")
