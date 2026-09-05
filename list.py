@@ -20,134 +20,48 @@ Why Learn DSA with Python: \n
 st.subheader("List")
 
 notes = """
-Create an algorithm to find the lowest value in a list:
+# Square each number in the list
+a=[2,3,4,5]
+#way1
+output = list(map(lambda x: x ** 2, a))
+#way2
+res = [val ** 2 for val in a]
+#output
+# [4, 9, 16, 25]
 
-my_array = [7, 12, 9, 4, 11, 8]
+# New list return only even numbers
+a = [1, 2, 3, 4, 5]
+res = [val for val in a if val % 2 == 0]
+#output
+# [2, 4]
 
-minVal = my_array[0]
+# New list return result based on condition
+a = [5, 12, 7, 18, 3, 20] # [3, 5, 7, 12, 18, 20]
+res = [val for val in a if val >10]
+res = [a[i] for i in range(len(a)) if i % 2 ==1]
+#output:
+# [12, 18, 20]
+print(res)
 
-for i in my_array:
-  if i < minVal:
-    minVal = i
+# Create a list from a range
+#[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+res = [i for i in range(10)]  # [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+print([1]*5) # [1, 1, 1, 1, 1]
 
-print('Lowest value:', minVal)
+# Flatten the list 
+a = [[1, 2, 3], [4, 5, 6], [7, 8, 9]] # [ val1, val2, val3] -> val1 = [1, 2, 3]
+#output 
+#[1, 2, 3, 4, 5, 6, 7, 8, 9]
 
-"""
-
-st.code(notes, language="python")
-
-st.subheader("Time Complexity")
-st.markdown("""
-In the example above, the time the algorithm needs to run is proportional, or linear, to the size of the data set. This is because the algorithm must visit every array element one time to find the lowest value. The loop must run 5 times since there are 5 values in the array. And if the array had 1000 values, the loop would have to run 1000 times
-""")
-
-st.image('https://www.w3schools.com/dsa/img_runtime_findlowest.png')
-
-st.subheader("Lists & Array Exercises")
-# https://www.geeksforgeeks.org/dsa/program-to-print-multiplication-table-of-a-number/
-# 1. Given a number n, check whether it is even or odd. Return true for even and false for odd.
-# 2. Given a number n, we need to print its table.  
-# 3. Given a positive integer n, find the sum of the first n natural numbers.
-# 4. Sum of squares of first n natural numbers
-# 1^2 + 2^2 + ......... + n^2 = n(n+1)(2n+1) / 6 
-# 5. Swap Two Numbers
-# 6. Closest to n and Divisible by m
-# 7. The dice problem
-
-Q1 = """
-def isEven(n):
-    # finding remainder of n
-    rem = n % 2; 
-    if rem == 0:
-        return True
-    else:
-        return False
-
-print(isEven(5))
-"""
-st.code(Q1, language="python")
-
-Q2 = """
-def printTable(n):
-
-    for i in range (1, 11): 
-        
-        # multiples from 1 to 10
-        print ("%d * %d = %d" % (n, i, n * i))
-
-print(printTable(5))
-"""
-st.code(Q2, language="python")
-
-Q3 = """
-def findSum(n):
-    sum = 0
-    i = 1
-    
-    # Iterating over all the numbers between 1 to n
-    while i <= n:
-        sum = sum + i
-        i = i + 1
-    return sum
-"""
-
-Q4 = """
-
-def summation(n):
-    return (n * (n + 1) * 
-           (2 * n + 1)) / 6
-print(summation(3))
-"""
-
-Q5 = """
-# Python3 Code to swap two numbers using third variable
-a = 10
-b = 20
-
-# Swap a and b using temp variable
-temp = a
-a = b
-b = temp
-print(a, b)
-
-a = 10
-b = 20
-
-#swap two numbers using arithmetic operators
-a = a + b
-b = a - b
-a = a - b
-
-print(a, b)
-
-#build in swap method
-def swap(a, b):
-    return b, a
-
-a = 10
-b = 20
-a, b = swap(a, b)
-print(a, b)
+res = [val for item in a for val in item]
+print(res)
 
 """
 
-Q6 = """
-def closest_number(n, m):
-    # find the quotient
-    closest = 0
-    min_difference = float('inf')
+st.code(notes, language='python')
 
-    # Check numbers around n
-    for i in range(n - abs(m), n + abs(m) + 1):
-        if i % m == 0:
-            difference = abs(n - i)
 
-            if difference < min_difference or \
-            			(difference == min_difference and abs(i) > abs(closest)):
-                closest = i
-                min_difference = difference
-    return closest
 
-print(closest_number(-15, 6))
 
-"""
+
+
