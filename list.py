@@ -61,9 +61,51 @@ res = [x for row in mat for x in row] # [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 print(res)
 
+#Using nested loop - [(0, 0), (0, 1), (0, 2), (1, 0), (1, 1), (1, 2), (2, 0), (2, 1), (2, 2)]
+
+# Way1
+res = []
+for i in range(3):
+  for j in range(3):
+    res.append((i,j))
+print(res)
+
+#way2
+res = [(x, y) for x in range(3) for y in range(3)]
+print(res)
+
+# Flatten the list
+mat = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+
+#output - [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+#way1
+res = []
+
+for item in mat:
+  for element in item:
+    res.append(element)
+
+print(res) # [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+#way2
+res = [element for item in mat for element in item]
+print(res) #[1, 2, 3, 4, 5, 6, 7, 8, 9]
+
 """
 
 st.code(notes, language='python')
+
+
+
+
+
+
+
+
+
+
+
 
 
 
