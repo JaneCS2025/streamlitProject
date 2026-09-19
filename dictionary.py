@@ -163,9 +163,26 @@ print(dict) # {0: 0, 2: 8, 4: 64, 6: 216, 8: 512}
 dict = {key : key**3 for key in range(9) if key % 2 == 0}
 print(dict) # {0: 0, 2: 8, 4: 64, 6: 216, 8: 512}
 
+# {0: 0, 2: 8, 4: 64, 6: 216, 8: 512}
+res = {x: x**3 for x in range(10) if x %2 ==0 }
+res = {x: x**3 for x in range(10) if x**3 %4 ==0 }
+print(res)
+
+word='coding'
+#{'C': 'ccc', 'O': 'ooo', 'D': 'ddd', 'I': 'iii', 'N': 'nnn', 'G': 'ggg'}
+res = {x.upper(): x*3 for x in word}
+print(res)
+
+word='GF'
+res = {x: {y: x+y for y in word } for x in word}
+#{'G': {'G': 'GG', 'F': 'GF'}, 'F': {'G': 'FG', 'F': 'FF'}}
+print(res)
+
+
 """
 
 st.code(notes, language='python')
+
 
 
 
