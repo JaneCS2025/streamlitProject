@@ -52,18 +52,27 @@ print(common)  # [(2, 3), (3, 2)]
 """
 
 #Counter Operations
-ctr1 = Counter([1, 2, 2, 3])
-ctr2 = Counter([2, 3, 3, 4])
+# ctr1 = Counter([1, 2, 2, 3])
+# ctr2 = Counter([2, 3, 3, 4])
 
-print(ctr1 + ctr2) # Addition # Counter({2: 3, 3: 3, 1: 1, 4: 1})
-print(ctr1 - ctr2) # Subtraction Counter({1: 1, 2: 1})
-print(ctr1 & ctr2) # Intersection Counter({2: 1, 3: 1})
-print(ctr1 | ctr2) # Union Counter({2: 2, 3: 2, 1: 1, 4: 1})
+# print(ctr1 + ctr2) # Addition # Counter({2: 3, 3: 3, 1: 1, 4: 1})
+# print(ctr1 - ctr2) # Subtraction Counter({1: 1, 2: 1})
+# print(ctr1 & ctr2) # Intersection Counter({2: 1, 3: 1})
+# print(ctr1 | ctr2) # Union Counter({2: 2, 3: 2, 1: 1, 4: 1})
 
 
 
 
 st.code(notes, language='python')
+
+fruits = ["apple", "banana", "apple", "orange", "banana", "apple"]
+#Use Python’s Counter to find:
+#How many of each fruit are in the bag and which fruit appears the most
+
+counts = Counter(fruits)
+
+print(counts) # Counter({'apple': 3, 'banana': 2, 'orange': 1})
+print(counts.most_common(1)[0]) # ('apple', 3)
 
 
 
