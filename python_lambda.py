@@ -2,6 +2,7 @@ import streamlit as st
 
 st.header('Python Lambda Functions')
 
+notes = """
 #a lambda function to convert a string to upper case
 word = 'apple'
 upper = lambda x : x.upper()
@@ -57,3 +58,7 @@ print(sumTotal) # 10
 
 mul = reduce(lambda x, y: x*y, a)
 print(mul) #24
+
+"""
+
+st.code(notes, language='python')
